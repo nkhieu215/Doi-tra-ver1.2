@@ -957,6 +957,16 @@ export class PhanTichSanPhamComponent implements OnInit {
         var resultBBTN = sessionStorage.getItem(`TiepNhan ${this.idBBTN}`);
         // dữ liệu lưu trong sessison(dạng string) -> chuyển về dạng JSON (giống arr,obj)
         list1 = JSON.parse(resultBBTN as string);
+        list1.sort((a, b) => {
+          if (a.slSuaChua > 0 && b.slSuaChua === 0) {
+            return 1;
+          }
+          if (a.slSuaChua === 0 && b.slSuaChua > 0) {
+            return -1;
+          }
+          return 0;
+        });
+        this.resultChiTietSanPhamTiepNhans = list1;
         // console.log('hien trang', JSON.parse(resultBBTN as string));
         this.resultChiTietSanPhamTiepNhans = JSON.parse(resultBBTN as string);
         this.yearTN = this.donBaoHanh.ngayTiepNhan.substr(2, 2);
@@ -968,6 +978,15 @@ export class PhanTichSanPhamComponent implements OnInit {
       }, 1000);
     } else {
       this.resultChiTietSanPhamTiepNhans = JSON.parse(result);
+      this.resultChiTietSanPhamTiepNhans.sort((a, b) => {
+        if (a.slSuaChua > 0 && b.slSuaChua === 0) {
+          return 1;
+        }
+        if (a.slSuaChua === 0 && b.slSuaChua > 0) {
+          return -1;
+        }
+        return 0;
+      });
       console.log('trường hợp 2');
 
       this.yearTN = this.donBaoHanh.ngayTiepNhan.substr(2, 2);
