@@ -1,7 +1,12 @@
 <div id="demo-container" class="container-slickgrid col-md-12 content">
   <h2 id="page-heading">{{ title }}</h2>
-  <angular-slickgrid gridId="grid1" [columnDefinitions]="columnDefinitions1" [gridOptions]="gridOptions1"
-    [dataset]="donBaoHanhs" (onAngularGridCreated)="angularGridReady($event)">
+  <angular-slickgrid
+    gridId="grid1"
+    [columnDefinitions]="columnDefinitions1"
+    [gridOptions]="gridOptions1"
+    [dataset]="donBaoHanhs"
+    (onAngularGridCreated)="angularGridReady($event)"
+  >
   </angular-slickgrid>
 </div>
 
@@ -50,29 +55,59 @@
             <tbody>
               <tr>
                 <td>
-                  <input type="text" class="inp-ptich-sp" style="background-color: #f2f2f2; width: 9rem; border: none"
-                    value="{{ donBaoHanh.maTiepNhan }}" disabled />
+                  <input
+                    type="text"
+                    class="inp-ptich-sp"
+                    style="background-color: #f2f2f2; width: 9rem; border: none"
+                    value="{{ donBaoHanh.maTiepNhan }}"
+                    disabled
+                  />
                 </td>
                 <td>
-                  <input type="text" class="inp-ptich-sp" style="background-color: #f2f2f2; width: 30rem; border: none"
-                    value="{{ donBaoHanh.khachHang?.tenKhachHang }}" disabled />
+                  <input
+                    type="text"
+                    class="inp-ptich-sp"
+                    style="background-color: #f2f2f2; width: 30rem; border: none"
+                    value="{{ donBaoHanh.khachHang?.tenKhachHang }}"
+                    disabled
+                  />
                 </td>
                 <td>
-                  <input type="text" class="inp-ptich-sp" style="background-color: #f2f2f2; border: none"
-                    value="{{ donBaoHanh.slCanPhanTich }}" disabled />
+                  <input
+                    type="text"
+                    class="inp-ptich-sp"
+                    style="background-color: #f2f2f2; border: none"
+                    value="{{ donBaoHanh.slCanPhanTich }}"
+                    disabled
+                  />
                 </td>
                 <td>
-                  <input type="text" class="inp-ptich-sp" style="background-color: #f2f2f2; border: none"
-                    value="{{ donBaoHanh.slDaPhanTich }}" disabled />
+                  <input
+                    type="text"
+                    class="inp-ptich-sp"
+                    style="background-color: #f2f2f2; border: none"
+                    value="{{ donBaoHanh.slDaPhanTich }}"
+                    disabled
+                  />
                 </td>
                 <td>
-                  <input type="range" class="inp-ptich-sp" style="background-color: #f2f2f2; border: none"
-                    value="{{ donBaoHanh.tienDo.toFixed(2) }}" id="donBaoHanh" />{{ donBaoHanh.tienDo.toFixed(2) }}%
+                  <input
+                    type="range"
+                    class="inp-ptich-sp"
+                    style="background-color: #f2f2f2; border: none"
+                    value="{{ donBaoHanh.tienDo.toFixed(2) }}"
+                    id="donBaoHanh"
+                  />{{ donBaoHanh.tienDo.toFixed(2) }}%
                 </td>
                 <td>{{ donBaoHanh.ngayTiepNhan | date: 'YYYY-MM-dd hh:mm:ss ' }}</td>
                 <td>
-                  <input type="text" class="inp-ptich-sp" style="background-color: #f2f2f2; border: none"
-                    value="{{ donBaoHanh.trangThai }}" disabled />
+                  <input
+                    type="text"
+                    class="inp-ptich-sp"
+                    style="background-color: #f2f2f2; border: none"
+                    value="{{ donBaoHanh.trangThai }}"
+                    disabled
+                  />
                 </td>
               </tr>
             </tbody>
@@ -105,9 +140,15 @@
                   </th>
                   <th scope="col" jhiSortBy="id" style="width: 45rem">
                     <span class="span-table-phantich">Tên sản phẩm</span>
-                    <input type="text" placeholder="Tìm kiếm" class="form-control" list="PTSP_ten_san_pham"
-                      [(ngModel)]="tenSanPham" [ngModelOptions]="{ standalone: true }"
-                      (change)="timKiemPhanTichSanPham()" />
+                    <input
+                      type="text"
+                      placeholder="Tìm kiếm"
+                      class="form-control"
+                      list="PTSP_ten_san_pham"
+                      [(ngModel)]="tenSanPham"
+                      [ngModelOptions]="{ standalone: true }"
+                      (change)="timKiemPhanTichSanPham()"
+                    />
                     <datalist id="PTSP_ten_san_pham">
                       <option *ngFor="let item of danhSachSanPhams">{{ item.name }}</option>
                     </datalist>
@@ -195,16 +236,21 @@
                     </button>
                   </td>
                   <td><input type="text" class="inp-ptich-sp" value="{{ i + 1 }}" disabled /></td>
-                  <td><input type="text" class="inp-ptich-sp" value="{{ data.tenSanPham }}" style="width: 45rem"
-                      disabled /></td>
+                  <td><input type="text" class="inp-ptich-sp" value="{{ data.tenSanPham }}" style="width: 45rem" disabled /></td>
                   <td><input type="text" class="inp-ptich-sp" value="{{ data.tinhTrang }}" disabled /></td>
                   <td><input type="text" class="inp-ptich-sp" value="{{ data.slTiepNhan }}" disabled /></td>
                   <td><input type="text" class="inp-ptich-sp" value="{{ data.slDaPhanTich }}" disabled /></td>
                   <td><input type="text" class="inp-ptich-sp" value="{{ data.slConLai }}" disabled /></td>
                   <td><input type="range" value="{{ data.tienDo }}" id="{{ i }}" />{{ data.tienDo.toFixed(2) }}%</td>
                   <td>
-                    <input type="checkbox" class="ui-checkbox" [(ngModel)]="data.check" (click)="checkItem(i)"
-                      [ngModelOptions]="{ standalone: true }" [disabled]="data.check" />
+                    <input
+                      type="checkbox"
+                      class="ui-checkbox"
+                      [(ngModel)]="data.check"
+                      (click)="checkItem(i)"
+                      [ngModelOptions]="{ standalone: true }"
+                      [disabled]="data.check"
+                    />
                   </td>
                 </tr>
               </tbody>
@@ -268,9 +314,12 @@
               <td>{{ listOfChiTietSanPhamPhanTich[indexOfPhanTichSanPham].slDaPhanTich }}</td>
               <td>{{ listOfChiTietSanPhamPhanTich[indexOfPhanTichSanPham].slConLai }}</td>
               <td>
-                <input type="range" [(ngModel)]="listOfChiTietSanPhamPhanTich[indexOfPhanTichSanPham].tienDo"
-                  [ngModelOptions]="{ standalone: true }" id="chiTietDonBaoHanh" />{{
-                listOfChiTietSanPhamPhanTich[indexOfPhanTichSanPham].tienDo.toFixed(2) }}%
+                <input
+                  type="range"
+                  [(ngModel)]="listOfChiTietSanPhamPhanTich[indexOfPhanTichSanPham].tienDo"
+                  [ngModelOptions]="{ standalone: true }"
+                  id="chiTietDonBaoHanh"
+                />{{ listOfChiTietSanPhamPhanTich[indexOfPhanTichSanPham].tienDo.toFixed(2) }}%
               </td>
             </tr>
           </tbody>
@@ -292,26 +341,51 @@
           <div class="group-scan-child">
             <div class="group-btn-lot">
               <button class="btn btn-primary btn-scan" (click)="buttonScanLot()" *ngIf="scanLot">Scan LOT</button>
-              <button class="btn btn-primary btn-scan" (click)="buttonScanSerial()" *ngIf="scanSerial">Scan
-                Serial</button>
+              <button class="btn btn-primary btn-scan" (click)="buttonScanSerial()" *ngIf="scanSerial">Scan Serial</button>
               <div class="container-serial">
                 <div class="custom-input" style="width: 35%">
-                  <input type="text" required="" name="text" autocomplete="off" class="inp-err-nsx container-lot-serial"
-                    id="serial" [disabled]="!scanSerial" [(ngModel)]="saveSerial"
-                    [ngModelOptions]="{ standalone: true }" (change)="scanSerialEvent()" />
+                  <input
+                    type="text"
+                    required=""
+                    name="text"
+                    autocomplete="off"
+                    class="inp-err-nsx container-lot-serial"
+                    id="serial"
+                    [disabled]="!scanSerial"
+                    [(ngModel)]="saveSerial"
+                    [ngModelOptions]="{ standalone: true }"
+                    (change)="scanSerialEvent()"
+                  />
                   <label class="form-label" style="margin-bottom: 0.5rem">Serrial</label>
                 </div>
 
                 <div class="custom-input" style="width: 35%">
-                  <input type="text" required="" name="text" autocomplete="off" class="inp-err-nsx container-lot-serial"
-                    id="lot" [(ngModel)]="saveLOT" [ngModelOptions]="{ standalone: true }" (change)="scanLotEvent()" />
+                  <input
+                    type="text"
+                    required=""
+                    name="text"
+                    autocomplete="off"
+                    class="inp-err-nsx container-lot-serial"
+                    id="lot"
+                    [(ngModel)]="saveLOT"
+                    [ngModelOptions]="{ standalone: true }"
+                    (change)="scanLotEvent()"
+                  />
                   <label class="form-label" style="margin-bottom: 0.5rem">LOT</label>
                 </div>
 
                 <div class="custom-input" style="width: 10%">
-                  <input type="text" required="" name="text" autocomplete="off" class="inp-err-nsx container-lot-serial"
-                    id="field_namSanXuat" data-cy="namSanXuat" [(ngModel)]="saveYear"
-                    [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    required=""
+                    name="text"
+                    autocomplete="off"
+                    class="inp-err-nsx container-lot-serial"
+                    id="field_namSanXuat"
+                    data-cy="namSanXuat"
+                    [(ngModel)]="saveYear"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                   <label class="form-label" style="margin-bottom: 0.5rem">Năm sản xuất</label>
                 </div>
               </div>
@@ -335,14 +409,21 @@
             <td>
               <tr *ngFor="let data of catchChangeOfListKhaiBaoLoi; let i = index" style="border: none">
                 <td *ngIf="i < catchChangeOfListKhaiBaoLoi!.length / 3" style="display: flex; padding: 10px 10px">
-                  <button class="btn-name-error"
+                  <button
+                    class="btn-name-error"
                     style="width: 238px; font-size: 16px; font-weight: 700; min-width: 238px; text-align: center"
-                    (click)="catchEventKhaiBaoLoi(i)">
+                    (click)="catchEventKhaiBaoLoi(i)"
+                  >
                     {{ data.loi.tenLoi }}
                   </button>
                   <span style="padding: 0 5px; line-height: 35px; margin: auto 0">{{ data.ghiChu }}</span>
-                  <input type="number" class="form-control inp-name-error" [(ngModel)]="data.soLuong"
-                    [ngModelOptions]="{ standalone: true }" (change)="catchEventKhaiBaoLois(i)" />
+                  <input
+                    type="number"
+                    class="form-control inp-name-error"
+                    [(ngModel)]="data.soLuong"
+                    [ngModelOptions]="{ standalone: true }"
+                    (change)="catchEventKhaiBaoLois(i)"
+                  />
                 </td>
               </tr>
             </td>
@@ -351,15 +432,23 @@
               <tr *ngFor="let data of catchChangeOfListKhaiBaoLoi; let i = index" style="border: none">
                 <td
                   *ngIf="catchChangeOfListKhaiBaoLoi!.length / 3 < i && i < (2 * catchChangeOfListKhaiBaoLoi!.length) / 3"
-                  style="display: flex; padding: 10px 10px">
-                  <button class="btn-name-error"
+                  style="display: flex; padding: 10px 10px"
+                >
+                  <button
+                    class="btn-name-error"
                     style="width: 238px; font-size: 16px; font-weight: 700; min-width: 238px; text-align: center"
-                    (click)="catchEventKhaiBaoLoi(i)">
+                    (click)="catchEventKhaiBaoLoi(i)"
+                  >
                     {{ data.loi.tenLoi }}
                   </button>
                   <span style="padding: 0 5px; line-height: 35px; margin: auto 0">{{ data.ghiChu }}</span>
-                  <input type="number" class="form-control inp-name-error" [(ngModel)]="data.soLuong"
-                    [ngModelOptions]="{ standalone: true }" (change)="catchEventKhaiBaoLois(i)" />
+                  <input
+                    type="number"
+                    class="form-control inp-name-error"
+                    [(ngModel)]="data.soLuong"
+                    [ngModelOptions]="{ standalone: true }"
+                    (change)="catchEventKhaiBaoLois(i)"
+                  />
                 </td>
               </tr>
             </td>
@@ -368,14 +457,21 @@
             <td>
               <tr *ngFor="let data of catchChangeOfListKhaiBaoLoi; let i = index" style="border: none">
                 <td *ngIf="i > (2 * catchChangeOfListKhaiBaoLoi!.length) / 3" style="display: flex; padding: 10px 10px">
-                  <button class="btn-name-error"
+                  <button
+                    class="btn-name-error"
                     style="width: 238px; font-size: 16px; font-weight: 700; min-width: 238px; text-align: center"
-                    (click)="catchEventKhaiBaoLoi(i)">
+                    (click)="catchEventKhaiBaoLoi(i)"
+                  >
                     {{ data.loi.tenLoi }}
                   </button>
                   <span style="padding: 0 5px; line-height: 35px; margin: auto 0">{{ data.ghiChu }}</span>
-                  <input type="number" class="form-control inp-name-error" [(ngModel)]="data.soLuong"
-                    [ngModelOptions]="{ standalone: true }" (change)="catchEventKhaiBaoLois(i)" />
+                  <input
+                    type="number"
+                    class="form-control inp-name-error"
+                    [(ngModel)]="data.soLuong"
+                    [ngModelOptions]="{ standalone: true }"
+                    (change)="catchEventKhaiBaoLois(i)"
+                  />
                 </td>
               </tr>
             </td>
@@ -397,23 +493,47 @@
               </th>
               <th scope="col" style="width: 40em">
                 <span class="span-table-phantich">Tên sản phẩm</span>
-                <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                  [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm"
+                  class="form-control"
+                  list="ten_san_pham"
+                  [(ngModel)]="searchKey"
+                  [ngModelOptions]="{ standalone: true }"
+                />
               </th>
               <th scope="col">
                 <span class="span-table-phantich">LOT Number</span>
-                <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                  [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm"
+                  class="form-control"
+                  list="ten_san_pham"
+                  [(ngModel)]="searchKey"
+                  [ngModelOptions]="{ standalone: true }"
+                />
               </th>
               <th scope="col">
                 <span class="span-table-phantich">Serial</span>
-                <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                  [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm"
+                  class="form-control"
+                  list="ten_san_pham"
+                  [(ngModel)]="searchKey"
+                  [ngModelOptions]="{ standalone: true }"
+                />
               </th>
               <th scope="col">
                 <span class="span-table-phantich">Năm sản xuất</span>
-                <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                  [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm"
+                  class="form-control"
+                  list="ten_san_pham"
+                  [(ngModel)]="searchKey"
+                  [ngModelOptions]="{ standalone: true }"
+                />
               </th>
               <th scope="col">
                 <span class="span-table-phantich">Tổng lỗi</span>
@@ -429,18 +549,36 @@
               </th>
               <th scope="col">
                 <span class="span-table-phantich">Nhân viên phân tích</span>
-                <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                  [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm"
+                  class="form-control"
+                  list="ten_san_pham"
+                  [(ngModel)]="searchKey"
+                  [ngModelOptions]="{ standalone: true }"
+                />
               </th>
               <th scope="col">
                 <span class="span-table-phantich">Ngày kiểm tra</span>
-                <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                  [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm"
+                  class="form-control"
+                  list="ten_san_pham"
+                  [(ngModel)]="searchKey"
+                  [ngModelOptions]="{ standalone: true }"
+                />
               </th>
               <th scope="col">
                 <span class="span-table-phantich">Username</span>
-                <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                  [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm"
+                  class="form-control"
+                  list="ten_san_pham"
+                  [(ngModel)]="searchKey"
+                  [ngModelOptions]="{ standalone: true }"
+                />
               </th>
               <th scope="col">
                 <span class="span-table-phantich">Trạng thái</span>
@@ -495,8 +633,7 @@
               <td class="body-column">{{ data.tenNhanVienPhanTich }}</td>
               <td class="body-column">{{ data.ngayKiemTra | date: 'YYYY-MM-dd hh:mm:ss' }}</td>
               <td class="body-column">{{ data.username }}</td>
-              <td class="body-column"><input type="checkbox" [(ngModel)]="data.trangThai"
-                  [ngModelOptions]="{ standalone: true }" /></td>
+              <td class="body-column"><input type="checkbox" [(ngModel)]="data.trangThai" [ngModelOptions]="{ standalone: true }" /></td>
               <td class="body-column">{{ data.loiKyThuat }}</td>
               <td class="body-column">{{ data.loiLinhDong }}</td>
               <td class="body-column">
@@ -530,8 +667,7 @@
       <div>
         <div class="group-select-btn-in">
           <span class="label-btn-select-bb">Trạng thái: {{ trangThaiInTN }} </span>
-          <button type="button" class="btn btn-primary btn-options-in btn-popup-in" (click)="openPopupBBTN()">Biên bản
-            tiếp nhận</button>
+          <button type="button" class="btn btn-primary btn-options-in btn-popup-in" (click)="openPopupBBTN()">Biên bản tiếp nhận</button>
         </div>
       </div>
 
@@ -548,8 +684,7 @@
             <tbody>
               <td class="inventory-name">
                 <tr *ngFor="let data of resultOfSanPhamTheoKho; let i = index" style="border: none">
-                  <button class="btn btn-primary btn-options-in btn-options-in-pt"
-                    (click)="openPopupInBBKN(i,data.key)">
+                  <button class="btn btn-primary btn-options-in btn-options-in-pt" (click)="openPopupInBBKN(i, data.key)">
                     {{ data.key }}: {{ data.value.length }} SP
                   </button>
                 </tr>
@@ -582,8 +717,7 @@
             <tbody>
               <td class="inventory-name">
                 <tr *ngFor="let data of resultOfSanPhamTheoKhoTL; let i = index" style="border: none">
-                  <button class="btn btn-primary btn-options-in btn-options-in-pt"
-                    (click)="openPopupInBBTL(i, data.key)">
+                  <button class="btn btn-primary btn-options-in btn-options-in-pt" (click)="openPopupInBBTL(i, data.key)">
                     {{ data.key }}: {{ data.value.length }} SP
                   </button>
                 </tr>
@@ -656,63 +790,135 @@
                 </th>
                 <th scope="col" style="width: 40em">
                   <span class="span-table-phantich">Tên sản phẩm</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
                 <th scope="col">
                   <span class="span-table-phantich">Mã sản phẩm</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
                 <th scope="col">
                   <span class="span-table-phantich">Số lô</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
                 <th scope="col">
                   <span class="span-table-phantich">LOT Number</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
                 <th scope="col">
                   <span class="span-table-phantich">Năm sản xuất</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
                 <th scope="col">
                   <span class="span-table-phantich">Tổng lỗi</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
                 <th scope="col">
                   <span class="span-table-phantich">Nhân viên phân tích</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
                 <th scope="col">
                   <span class="span-table-phantich">Ngày kiểm tra</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
                 <th scope="col">
                   <span class="span-table-phantich">Username</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
                 <th scope="col">
                   <span class="span-table-phantich">Trạng thái</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
                 <th scope="col">
                   <span class="span-table-phantich">Lỗi kỹ thuật</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
                 <th scope="col">
                   <span class="span-table-phantich">Lỗi linh động</span>
-                  <input type="text" placeholder="Tìm kiếm" class="form-control" list="ten_san_pham"
-                    [(ngModel)]="searchKey" [ngModelOptions]="{ standalone: true }" />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm"
+                    class="form-control"
+                    list="ten_san_pham"
+                    [(ngModel)]="searchKey"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
                 </th>
               </tr>
             </thead>
@@ -888,8 +1094,15 @@
       <div class="popup-header-in">
         <span class="close-btn" style="float: right" (click)="closePopupBBKN()">&times;</span>
         <div class="hiddenToolbar">
-          <button type="button" class="btn btn-primary" printTitle="BIÊN BẢN KIỂM NGHIỆM SẢN PHẨM BẢO HÀNH"
-            (click)="xacNhanInBienBan()" printSectionId="BBkhoA" style="position: relative; z-index: 5" ngxPrint>
+          <button
+            type="button"
+            class="btn btn-primary"
+            printTitle="BIÊN BẢN KIỂM NGHIỆM SẢN PHẨM BẢO HÀNH"
+            (click)="xacNhanInBienBan()"
+            printSectionId="BBkhoA"
+            style="position: relative; z-index: 5"
+            ngxPrint
+          >
             <fa-icon [icon]="faPrint" style="padding-right: 5px"></fa-icon> In
           </button>
         </div>
@@ -898,8 +1111,12 @@
           <header>
             <div class="row">
               <div class="col-6" align="left" style="height: 0px">
-                <img src="../../../../content/images/logoRD.png" alt="CÔNG TY CP BÓNG ĐÈN PHÍCH NƯỚC RẠNG ĐÔNG"
-                  width="150" style="margin-top: -30px; margin-left: 30px" />
+                <img
+                  src="../../../../content/images/logoRD.png"
+                  alt="CÔNG TY CP BÓNG ĐÈN PHÍCH NƯỚC RẠNG ĐÔNG"
+                  width="150"
+                  style="margin-top: -30px; margin-left: 30px"
+                />
               </div>
               <div class="col-6" align="right">RĐ.QID05.BM02 Ban hành lần 1</div>
             </div>
@@ -921,12 +1138,10 @@
             </div>
             <div>
               <div align="right" style="margin-right: 104px">
-                <qrcode [qrdata]="donBaoHanh.maTiepNhan" [width]="10" [errorCorrectionLevel]="'M'"
-                  [elementType]="'img'"></qrcode>
+                <qrcode [qrdata]="donBaoHanh.maTiepNhan" [width]="10" [errorCorrectionLevel]="'M'" [elementType]="'img'"></qrcode>
               </div>
               <br />
-              <div align="right" style="margin-right: 110px; font-size: 12px; margin-top: -30px">{{
-                donBaoHanh.maTiepNhan }}</div>
+              <div align="right" style="margin-right: 110px; font-size: 12px; margin-top: -30px">{{ donBaoHanh.maTiepNhan }}</div>
             </div>
           </div>
           <!-- <div align="right" style="margin-right: 62px">
@@ -935,174 +1150,213 @@
           <table id="tableA" class="table-TN" style="width: 100%; border-spacing: 0px">
             <thead>
               <tr>
-                <th rowspan="2" style="
+                <th
+                  rowspan="2"
+                  style="
                     text-align: center;
                     font-weight: 700;
                     width: 1rem;
                     border-left: 0.5px solid black;
                     border-top: 0.5px solid black;
                     border-bottom: 0.5px solid black;
-                  ">
+                  "
+                >
                   STT
                 </th>
-                <th rowspan="2" style="
+                <th
+                  rowspan="2"
+                  style="
                     text-align: center;
                     font-weight: 700;
                     width: 30rem;
                     border-left: 0.5px solid black;
                     border-top: 0.5px solid black;
                     border-bottom: 0.5px solid black;
-                  ">
+                  "
+                >
                   Tên sản phẩm
                 </th>
-                <th rowspan="2" style="
+                <th
+                  rowspan="2"
+                  style="
                     text-align: center;
                     font-weight: 700;
                     width: 3rem;
                     border-left: 0.5px solid black;
                     border-top: 0.5px solid black;
                     border-bottom: 0.5px solid black;
-                  ">
+                  "
+                >
                   Đ.vị tính
                 </th>
-                <th rowspan="2" style="
+                <th
+                  rowspan="2"
+                  style="
                     text-align: center;
                     font-weight: 700;
                     width: 4rem;
                     border-left: 0.5px solid black;
                     border-top: 0.5px solid black;
                     border-bottom: 0.5px solid black;
-                  ">
+                  "
+                >
                   SL SP được bảo hành
                 </th>
-                <th colspan="2" style="
+                <th
+                  colspan="2"
+                  style="
                     text-align: center;
                     font-weight: 700;
                     border-left: 0.5px solid black;
                     border-top: 0.5px solid black;
                     border-bottom: 0.5px solid black;
-                  ">
+                  "
+                >
                   Mô tả lỗi
                 </th>
-                <th colspan="2" style="
+                <th
+                  colspan="2"
+                  style="
                     text-align: center;
                     font-weight: 700;
                     border-left: 0.5px solid black;
                     border-top: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     border-right: 0.5px solid black;
-                  ">
+                  "
+                >
                   Kết luận, xử lý
                 </th>
               </tr>
               <tr>
-                <th style="
+                <th
+                  style="
                     text-align: center;
                     font-weight: 700;
                     width: 5rem;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
-                  ">
+                  "
+                >
                   Lỗi linh động
                 </th>
-                <th style="
+                <th
+                  style="
                     text-align: center;
                     font-weight: 700;
                     width: 5rem;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
-                  ">
+                  "
+                >
                   Lỗi kỹ thuật
                 </th>
-                <th style="
+                <th
+                  style="
                     text-align: center;
                     font-weight: 700;
                     width: 7rem;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
-                  ">
+                  "
+                >
                   SL SP phải thanh lý(*)
                 </th>
-                <th style="
+                <th
+                  style="
                     text-align: center;
                     font-weight: 700;
                     width: 7rem;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     border-right: 0.5px solid black;
-                  ">
+                  "
+                >
                   SL SP sửa chữa thay thế
                 </th>
               </tr>
             </thead>
             <tbody id="body-tableA">
               <tr *ngFor="let item of danhSachBienBanSanPhamTheoKho; let i = index">
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ i + 1 }}
                 </td>
-                <td
-                  style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
+                <td style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
                   {{ item.tenSanPham }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ item.sanPham!.donVi }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ item.slTiepNhan }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ item.loiLinhDong }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ item.loiKyThuat }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ item.slTiepNhan }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     border-right: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   0
                 </td>
                 <!-- <td>{{}}</td> -->
@@ -1113,8 +1367,7 @@
           </table>
 
           <div class="notes">
-            <p style="padding-left: 3rem"><i>(*) Số lượng thanh lý là căn cứ để đổi trả sản phẩm mới cho khách hàng</i>
-            </p>
+            <p style="padding-left: 3rem"><i>(*) Số lượng thanh lý là căn cứ để đổi trả sản phẩm mới cho khách hàng</i></p>
             <p style="padding-left: 3rem"><i>(**) Các vật tư, linh kiện đề nghị để sửa chữa, thay thế:</i></p>
             <hr />
             <hr />
@@ -1124,16 +1377,14 @@
               <div class="col" style="text-align: center"><strong>TỔNG GIÁM ĐỐC/UQ</strong></div>
               <div class="col" style="text-align: center; margin-right: -2rem">
                 <strong>TRƯỞNG BỘ PHẬN</strong>
-                <a style="display: block; margin-top: 6rem; text-decoration: none; color: black; font-size: 18px">Trần
-                  Hoàng Tùng</a>
+                <a style="display: block; margin-top: 6rem; text-decoration: none; color: black; font-size: 18px">Trần Hoàng Tùng</a>
               </div>
               <div class="col" style="text-align: center">
                 <strong>TỔ BẢO HÀNH SẢN PHẨM</strong> <br />
                 <!-- <select class="nhanvien" style="text-align:center; margin-top: 5rem;"></select> -->
-                <a [href]="selectedValue"
-                  style="font-size: 18px; display: block; margin-top: 6rem; text-decoration: none; color: black">{{
+                <a [href]="selectedValue" style="font-size: 18px; display: block; margin-top: 6rem; text-decoration: none; color: black">{{
                   selectedValue
-                  }}</a>
+                }}</a>
               </div>
             </div>
           </footer>
@@ -1156,8 +1407,15 @@
       <div class="popup-header-in">
         <span class="close-btn" style="float: right" (click)="closePopupBBTL()">&times;</span>
         <div class="hiddenToolbar">
-          <button type="button" class="btn btn-primary" printTitle="BIÊN BẢN THANH LÝ SẢN PHẨM MẤT PHẨM CHẤT"
-            (click)="xacNhanInBienBan()" printSectionId="BBTL" style="position: relative; z-index: 5" ngxPrint>
+          <button
+            type="button"
+            class="btn btn-primary"
+            printTitle="BIÊN BẢN THANH LÝ SẢN PHẨM MẤT PHẨM CHẤT"
+            (click)="xacNhanInBienBan()"
+            printSectionId="BBTL"
+            style="position: relative; z-index: 5"
+            ngxPrint
+          >
             <fa-icon [icon]="faPrint" style="padding-right: 5px"></fa-icon>In
           </button>
         </div>
@@ -1166,8 +1424,12 @@
             <header>
               <div class="row">
                 <div class="col-6" align="left" style="height: 0px">
-                  <img src="../../../../content/images/logoRD.png" alt="CÔNG TY CP BÓNG ĐÈN PHÍCH NƯỚC RẠNG ĐÔNG"
-                    width="150" style="margin-top: -30px; margin-left: 30px" />
+                  <img
+                    src="../../../../content/images/logoRD.png"
+                    alt="CÔNG TY CP BÓNG ĐÈN PHÍCH NƯỚC RẠNG ĐÔNG"
+                    width="150"
+                    style="margin-top: -30px; margin-left: 30px"
+                  />
                 </div>
                 <div class="col-6" align="right">RĐ.QID05.BM02 Ban hành lần 1</div>
               </div>
@@ -1182,8 +1444,7 @@
               <div>
                 <div style="padding-left: 2rem">
                   <p class="ngayTN">
-                    Ngày {{ dateTN }} tháng {{ monthTN }} năm 20{{ yearTN }} tại Công ty cổ phần Bóng đèn Phích nước
-                    Rạng Đông
+                    Ngày {{ dateTN }} tháng {{ monthTN }} năm 20{{ yearTN }} tại Công ty cổ phần Bóng đèn Phích nước Rạng Đông
                   </p>
                   Thành phần:
                 </div>
@@ -1195,10 +1456,8 @@
                 </div>
                 <div style="text-indent: 2rem">
                   <p class="description">
-                    Căn cứ Biên bản kiểm nghiệm sản phẩm kém chất lượng số {{ bienBanKiemNghiem.maBienBan }} đối với lô
-                    hàng đổi của khách
-                    hàng tại Biên bản giao nhận sản phẩm đổi số {{ bienBanTiepNhan.maBienBan }} ngày {{ dateTN }} tháng
-                    {{ monthTN }} năm
+                    Căn cứ Biên bản kiểm nghiệm sản phẩm kém chất lượng số {{ bienBanKiemNghiem.maBienBan }} đối với lô hàng đổi của khách
+                    hàng tại Biên bản giao nhận sản phẩm đổi số {{ bienBanTiepNhan.maBienBan }} ngày {{ dateTN }} tháng {{ monthTN }} năm
                     20{{ yearTN }}
                   </p>
 
@@ -1207,59 +1466,66 @@
               </div>
               <div>
                 <div align="right" style="margin-right: 104px">
-                  <qrcode [qrdata]="donBaoHanh.maTiepNhan" [width]="10" [errorCorrectionLevel]="'M'"
-                    [elementType]="'img'"></qrcode>
+                  <qrcode [qrdata]="donBaoHanh.maTiepNhan" [width]="10" [errorCorrectionLevel]="'M'" [elementType]="'img'"></qrcode>
                 </div>
                 <br />
-                <div align="right" style="margin-right: 110px; font-size: 12px; margin-top: -30px">{{
-                  donBaoHanh.maTiepNhan }}</div>
+                <div align="right" style="margin-right: 110px; font-size: 12px; margin-top: -30px">{{ donBaoHanh.maTiepNhan }}</div>
               </div>
             </div>
 
             <table id="tableA" class="table-TN" style="width: 100%; border-spacing: 0px">
               <thead>
                 <tr>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 1rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     STT
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 30rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     Tên sản phẩm
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 1rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     Đ.vị tính
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 5rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     Số lượng SP thanh lý
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 18rem;
@@ -1267,51 +1533,59 @@
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       border-right: 0.5px solid black;
-                    ">
+                    "
+                  >
                     Hình thức thanh lý
                   </th>
                 </tr>
               </thead>
               <tbody id="body-table">
                 <tr *ngFor="let item of danhSachBienBanSanPhamTheoKho; let i = index">
-                  <td style="
+                  <td
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       text-align: center;
-                    ">
+                    "
+                  >
                     {{ i + 1 }}
                   </td>
-                  <td
-                    style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
+                  <td style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
                     {{ item.tenSanPham }}
                   </td>
-                  <td style="
+                  <td
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       text-align: center;
-                    ">
+                    "
+                  >
                     {{ item.sanPham!.donVi }}
                   </td>
-                  <td style="
+                  <td
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       text-align: center;
-                    ">
+                    "
+                  >
                     {{ item.slTiepNhan }}
                   </td>
-                  <td style="
+                  <td
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       border-right: 0.5px solid black;
-                    ">
+                    "
+                  >
                     Sản phẩm tháo dỡ thanh lý giao cho công ty
                   </td>
                 </tr>
@@ -1319,8 +1593,7 @@
             </table>
 
             <footer>
-              <div class="row"
-                style="margin-left: -4rem; margin-top: 1rem; display: flex; justify-content: space-around">
+              <div class="row" style="margin-left: -4rem; margin-top: 1rem; display: flex; justify-content: space-around">
                 <div class="col" style="text-align: center"><strong>TỔNG GIÁM ĐỐC/UQ</strong></div>
                 <div class="col" style="text-align: center"><strong>PHÒNG TKKTTC</strong></div>
                 <div class="col" style="text-align: center"><strong>BẢO VỆ</strong></div>
@@ -1328,10 +1601,9 @@
                   <strong>TỔ BẢO HÀNH SẢN PHẨM</strong> <br />
                   <!-- <select class="nhanvien" style="text-align:center; margin-top: 5rem;"></select>
                  -->
-                  <a [href]="selectedValue"
-                    style="display: block; margin-top: 6rem; text-decoration: none; color: black">{{
+                  <a [href]="selectedValue" style="display: block; margin-top: 6rem; text-decoration: none; color: black">{{
                     selectedValue
-                    }}</a>
+                  }}</a>
                 </div>
               </div>
             </footer>
@@ -1362,9 +1634,16 @@
       <div class="popup-header-in">
         <span class="close-btn" style="float: right" (click)="closePopupBBTN()">&times;</span>
         <div id="hiddenToolbar">
-          <button type="button" class="btn btn-primary" printTitle="BIÊN BẢN GIAO NHẬN SẢN PHẨM ĐỔI"
-            (click)="xacNhanInBienBan()" printSectionId="BBTN"
-            [printStyle]="{ '#signatureSelect': { display: 'none' } }" style="position: relative; z-index: 5" ngxPrint>
+          <button
+            type="button"
+            class="btn btn-primary"
+            printTitle="BIÊN BẢN GIAO NHẬN SẢN PHẨM ĐỔI"
+            (click)="xacNhanInBienBan()"
+            printSectionId="BBTN"
+            [printStyle]="{ '#signatureSelect': { display: 'none' } }"
+            style="position: relative; z-index: 5"
+            ngxPrint
+          >
             <fa-icon [icon]="faPrint" style="padding-right: 5px"></fa-icon>In
           </button>
           <!-- <button type="button" class="btn btn-success" style="float: right" (click)="addRow()">Thêm dòng</button> -->
@@ -1374,8 +1653,12 @@
             <header>
               <div class="row">
                 <div class="col-6" align="left" style="height: 0px">
-                  <img src="../../../../content/images/logoRD.png" alt="CÔNG TY CP BÓNG ĐÈN PHÍCH NƯỚC RẠNG ĐÔNG"
-                    width="150" style="margin-top: -30px; margin-left: 30px" />
+                  <img
+                    src="../../../../content/images/logoRD.png"
+                    alt="CÔNG TY CP BÓNG ĐÈN PHÍCH NƯỚC RẠNG ĐÔNG"
+                    width="150"
+                    style="margin-top: -30px; margin-left: 30px"
+                  />
                 </div>
                 <div class="col-6" align="right">RĐ.QID05.BM01 Ban hành lần 1</div>
               </div>
@@ -1398,199 +1681,225 @@
               </div>
               <div>
                 <div align="right" style="margin-right: 92px">
-                  <qrcode [qrdata]="donBaoHanh.maTiepNhan" [width]="10" [errorCorrectionLevel]="'M'"
-                    [elementType]="'img'"></qrcode>
+                  <qrcode [qrdata]="donBaoHanh.maTiepNhan" [width]="10" [errorCorrectionLevel]="'M'" [elementType]="'img'"></qrcode>
                 </div>
                 <br />
-                <div align="right" style="margin-right: 94px; font-size: 14px; margin-top: -30px">{{
-                  donBaoHanh.maTiepNhan }}</div>
+                <div align="right" style="margin-right: 94px; font-size: 14px; margin-top: -30px">{{ donBaoHanh.maTiepNhan }}</div>
               </div>
             </div>
             <div>
               <table id="table" class="table-TN" style="width: 100%; border-spacing: 0px">
                 <thead>
                   <tr>
-                    <th style="
+                    <th
+                      style="
                         text-align: center;
                         font-weight: 700;
                         width: 1rem;
                         border-left: 0.5px solid black;
                         border-top: 0.5px solid black;
                         border-bottom: 0.5px solid black;
-                      ">
+                      "
+                    >
                       STT
                     </th>
-                    <th style="
+                    <th
+                      style="
                         text-align: center;
                         font-weight: 700;
                         width: 30rem;
                         border-left: 0.5px solid black;
                         border-top: 0.5px solid black;
                         border-bottom: 0.5px solid black;
-                      ">
+                      "
+                    >
                       Tên sản phẩm
                     </th>
-                    <th style="
+                    <th
+                      style="
                         text-align: center;
                         font-weight: 700;
                         width: 3rem;
                         border-left: 0.5px solid black;
                         border-top: 0.5px solid black;
                         border-bottom: 0.5px solid black;
-                      ">
+                      "
+                    >
                       Đ.vị tính
                     </th>
-                    <th style="
+                    <th
+                      style="
                         text-align: center;
                         font-weight: 700;
                         width: 4rem;
                         border-left: 0.5px solid black;
                         border-top: 0.5px solid black;
                         border-bottom: 0.5px solid black;
-                      ">
+                      "
+                    >
                       SL khách giao
                     </th>
-                    <th style="
+                    <th
+                      style="
                         text-align: center;
                         font-weight: 700;
                         width: 4rem;
                         border-left: 0.5px solid black;
                         border-top: 0.5px solid black;
                         border-bottom: 0.5px solid black;
-                      ">
+                      "
+                    >
                       SL thực nhận
                     </th>
-                    <th style="
+                    <th
+                      style="
                         text-align: center;
                         font-weight: 700;
                         width: 3rem;
                         border-left: 0.5px solid black;
                         border-top: 0.5px solid black;
                         border-bottom: 0.5px solid black;
-                      ">
+                      "
+                    >
                       SL SP đổi mới
                     </th>
-                    <th style="
+                    <th
+                      style="
                         text-align: center;
                         font-weight: 700;
                         width: 3.5rem;
                         border-left: 0.5px solid black;
                         border-top: 0.5px solid black;
                         border-bottom: 0.5px solid black;
-                      ">
+                      "
+                    >
                       SL SP sửa chữa
                     </th>
-                    <th style="
+                    <th
+                      style="
                         text-align: center;
                         font-weight: 700;
                         width: 4rem;
                         border-left: 0.5px solid black;
                         border-top: 0.5px solid black;
                         border-bottom: 0.5px solid black;
-                      ">
+                      "
+                    >
                       SL SP không được bảo hành
                     </th>
-                    <th style="
+                    <th
+                      style="
                         text-align: center;
                         font-weight: 700;
                         width: 10rem;
                         border-left: 0.5px solid black;
                         border-top: 0.5px solid black;
                         border-bottom: 0.5px solid black;
-                      ">
+                      "
+                    >
                       Lý do không bảo hành
                     </th>
-                    <th style="text-align: center; font-weight: 700; width: 10rem; border: 0.5px solid black">Lý do sửa
-                      chữa</th>
+                    <th style="text-align: center; font-weight: 700; width: 10rem; border: 0.5px solid black">Lý do sửa chữa</th>
                   </tr>
                 </thead>
                 <tbody class="body-table" *ngFor="let data of resultChiTietSanPhamTiepNhans; let i = index">
-                  <td style="
+                  <td
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       text-align: center;
-                    ">
+                    "
+                  >
                     {{ i + 1 }}
                   </td>
-                  <td
-                    style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
+                  <td style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
                     {{ data.tenSanPham }}
                   </td>
-                  <td style="
+                  <td
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       text-align: center;
-                    ">
+                    "
+                  >
                     {{ data.donVi }}
                   </td>
-                  <td style="
+                  <td
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       text-align: center;
-                    ">
+                    "
+                  >
                     {{ data.slKhachGiao }}
                   </td>
-                  <td style="
+                  <td
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       text-align: center;
-                    ">
+                    "
+                  >
                     {{ data.slTiepNhan }}
                   </td>
-                  <td style="
+                  <td
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       text-align: center;
-                    ">
+                    "
+                  >
                     {{ data.slDoiMoi }}
                   </td>
-                  <td style="
+                  <td
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       text-align: center;
-                    ">
+                    "
+                  >
                     {{ data.slSuaChua }}
                   </td>
-                  <td style="
+                  <td
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       text-align: center;
-                    ">
+                    "
+                  >
                     {{ data.slKhongBaoHanh }}
                   </td>
+                  <td style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black"></td>
                   <td
-                    style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
-                  </td>
-                  <td style="
+                    style="
                       font-weight: 650;
                       height: 36px;
                       border-left: 0.5px solid black;
                       border-bottom: 0.5px solid black;
                       border-right: 0.5px solid black;
-                    "></td>
+                    "
+                  ></td>
                 </tbody>
               </table>
             </div>
             <div class="notes">
               <p>
-                Biên bản được lập thành 03 liên (hoặc 4 liên): liên 1 lưu Tổ bảo hành sản phẩm, liên 2 giao khách hàng,
-                liên 3 giao P. Kh,
-                liên 4 giao P. BH1 (Với trường hợp khách hàng là C1, 2 Miền Bắc). Đối với chi nhánh (2 liên): liên 1 lưu
-                chi nhánh, liên 2
+                Biên bản được lập thành 03 liên (hoặc 4 liên): liên 1 lưu Tổ bảo hành sản phẩm, liên 2 giao khách hàng, liên 3 giao P. Kh,
+                liên 4 giao P. BH1 (Với trường hợp khách hàng là C1, 2 Miền Bắc). Đối với chi nhánh (2 liên): liên 1 lưu chi nhánh, liên 2
                 giao khách hàng
               </p>
               <p><strong>Lưu ý: Khi khách hàng lấy sản phẩm đổi, phải giao liên 2 cho thủ kho công ty</strong></p>
@@ -1601,12 +1910,10 @@
                 <div class="col" style="text-align: center"><strong>BẢO VỆ</strong></div>
                 <div class="col" style="text-align: center">
                   <strong>TỔ BẢO HÀNH SẢN PHẨM</strong><br />
-                  <a [href]="selectedValue"
-                    style="display: block; margin-top: 6rem; text-decoration: none; color: black">{{
+                  <a [href]="selectedValue" style="display: block; margin-top: 6rem; text-decoration: none; color: black">{{
                     selectedValue
-                    }}</a>
-                  <select id="signatureSelect" style="float: right; margin-right: 7em"
-                    (change)="onSelectChanged($event)">
+                  }}</a>
+                  <select id="signatureSelect" style="float: right; margin-right: 7em" (change)="onSelectChanged($event)">
                     <option value="Đỗ Văn Việt">Đỗ Văn Việt</option>
                     <option value="Phạm Văn Mạnh">Phạm Văn Mạnh</option>
                     <option value="Trần Thạc Nguyên">Trần Thạc Nguyên</option>
@@ -1626,8 +1933,12 @@
           <header>
             <div class="row">
               <div class="col-6" align="left" style="height: 0px">
-                <img src="../../../../content/images/logoRD.png" alt="CÔNG TY CP BÓNG ĐÈN PHÍCH NƯỚC RẠNG ĐÔNG"
-                  width="150" style="margin-top: -30px; margin-left: 30px" />
+                <img
+                  src="../../../../content/images/logoRD.png"
+                  alt="CÔNG TY CP BÓNG ĐÈN PHÍCH NƯỚC RẠNG ĐÔNG"
+                  width="150"
+                  style="margin-top: -30px; margin-left: 30px"
+                />
               </div>
               <div class="col-6" align="right">RĐ.QID05.BM01 Ban hành lần 1</div>
             </div>
@@ -1641,7 +1952,7 @@
           <div style="display: flex; justify-content: space-between; margin-bottom: 5px">
             <div>
               <p>
-                Ngày {{ maBienBan.substr(2, 2) }} tháng {{ maBienBan.substr(4, 2) }} năm 20{{ maBienBan.substr(6, 2) }}
+                Ngày {{ dateTN }} tháng {{ monthTN }} năm 20{{ yearTN }}
                 Công ty CP Bóng đèn Phích nước Rạng Đông nhận sản phẩm đổi của
               </p>
               <p>Ông (Bà): {{ donBaoHanh.khachHang.tenKhachHang }}</p>
@@ -1650,194 +1961,217 @@
             </div>
             <div>
               <div align="right" style="margin-right: 92px">
-                <qrcode [qrdata]="donBaoHanh.maTiepNhan" [width]="10" [errorCorrectionLevel]="'M'"
-                  [elementType]="'img'"></qrcode>
+                <qrcode [qrdata]="donBaoHanh.maTiepNhan" [width]="10" [errorCorrectionLevel]="'M'" [elementType]="'img'"></qrcode>
               </div>
               <br />
-              <div align="right" style="margin-right: 94px; font-size: 14px; margin-top: -30px">{{ donBaoHanh.maTiepNhan
-                }}</div>
+              <div align="right" style="margin-right: 94px; font-size: 14px; margin-top: -30px">{{ donBaoHanh.maTiepNhan }}</div>
             </div>
           </div>
           <div>
             <table id="table" class="table-TN" style="width: 100%; border-spacing: 0px">
               <thead>
                 <tr>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 1rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     STT
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 30rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     Tên sản phẩm
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 3rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     Đ.vị tính
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 4rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     SL khách giao
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 4rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     SL thực nhận
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 3rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     SL SP đổi mới
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 3.5rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     SL SP sửa chữa
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 4rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     SL SP không được bảo hành
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 10rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     Lý do không bảo hành
                   </th>
-                  <th style="text-align: center; font-weight: 700; width: 10rem; border: 0.5px solid black">Lý do sửa
-                    chữa</th>
+                  <th style="text-align: center; font-weight: 700; width: 10rem; border: 0.5px solid black">Lý do sửa chữa</th>
                 </tr>
               </thead>
               <tbody class="body-table" *ngFor="let data of resultChiTietSanPhamTiepNhans; let i = index">
-                <td
-                  style="height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black; text-align: center">
+                <td style="height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black; text-align: center">
                   {{ i + 1 }}
                 </td>
-                <td
-                  style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
+                <td style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
                   {{ data.tenSanPham }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.donVi }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.slKhachGiao }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.slTiepNhan }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.slDoiMoi }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.slSuaChua }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.slKhongBaoHanh }}
                 </td>
+                <td style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black"></td>
                 <td
-                  style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
-                </td>
-                <td style="
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     border-right: 0.5px solid black;
-                  "></td>
+                  "
+                ></td>
               </tbody>
             </table>
           </div>
           <div class="notes">
             <p>
-              Biên bản được lập thành 03 liên (hoặc 4 liên): liên 1 lưu Tổ bảo hành sản phẩm, liên 2 giao khách hàng,
-              liên 3 giao P. Kh,
-              liên 4 giao P. BH1 (Với trường hợp khách hàng là C1, 2 Miền Bắc). Đối với chi nhánh (2 liên): liên 1 lưu
-              chi nhánh, liên 2
+              Biên bản được lập thành 03 liên (hoặc 4 liên): liên 1 lưu Tổ bảo hành sản phẩm, liên 2 giao khách hàng, liên 3 giao P. Kh,
+              liên 4 giao P. BH1 (Với trường hợp khách hàng là C1, 2 Miền Bắc). Đối với chi nhánh (2 liên): liên 1 lưu chi nhánh, liên 2
               giao khách hàng
             </p>
             <p><strong>Lưu ý: Khi khách hàng lấy sản phẩm đổi, phải giao liên 2 cho thủ kho công ty</strong></p>
@@ -1848,10 +2182,9 @@
               <div class="col" style="text-align: center"><strong>BẢO VỆ</strong></div>
               <div class="col" style="text-align: center">
                 <strong>TỔ BẢO HÀNH SẢN PHẨM</strong><br />
-                <a [href]="selectedValue"
-                  style="font-size: 18px; display: block; margin-top: 6rem; text-decoration: none; color: black">{{
+                <a [href]="selectedValue" style="font-size: 18px; display: block; margin-top: 6rem; text-decoration: none; color: black">{{
                   selectedValue
-                  }}</a>
+                }}</a>
               </div>
             </div>
           </footer>
@@ -1862,8 +2195,12 @@
           <header>
             <div class="row">
               <div class="col-6" align="left" style="height: 0px">
-                <img src="../../../../content/images/logoRD.png" alt="CÔNG TY CP BÓNG ĐÈN PHÍCH NƯỚC RẠNG ĐÔNG"
-                  width="150" style="margin-top: -30px; margin-left: 30px" />
+                <img
+                  src="../../../../content/images/logoRD.png"
+                  alt="CÔNG TY CP BÓNG ĐÈN PHÍCH NƯỚC RẠNG ĐÔNG"
+                  width="150"
+                  style="margin-top: -30px; margin-left: 30px"
+                />
               </div>
               <div class="col-6" align="right">RĐ.QID05.BM01 Ban hành lần 1</div>
             </div>
@@ -1877,7 +2214,7 @@
           <div style="display: flex; justify-content: space-between; margin-bottom: 5px">
             <div>
               <p>
-                Ngày {{ maBienBan.substr(2, 2) }} tháng {{ maBienBan.substr(4, 2) }} năm 20{{ maBienBan.substr(6, 2) }}
+                Ngày {{ dateTN }} tháng {{ monthTN }} năm 20{{ yearTN }}
                 Công ty CP Bóng đèn Phích nước Rạng Đông nhận sản phẩm đổi của
               </p>
               <p>Ông (Bà): {{ donBaoHanh.khachHang.tenKhachHang }}</p>
@@ -1886,199 +2223,225 @@
             </div>
             <div>
               <div align="right" style="margin-right: 92px">
-                <qrcode [qrdata]="donBaoHanh.maTiepNhan" [width]="10" [errorCorrectionLevel]="'M'"
-                  [elementType]="'img'"></qrcode>
+                <qrcode [qrdata]="donBaoHanh.maTiepNhan" [width]="10" [errorCorrectionLevel]="'M'" [elementType]="'img'"></qrcode>
               </div>
               <br />
-              <div align="right" style="margin-right: 94px; font-size: 14px; margin-top: -30px">{{ donBaoHanh.maTiepNhan
-                }}</div>
+              <div align="right" style="margin-right: 94px; font-size: 14px; margin-top: -30px">{{ donBaoHanh.maTiepNhan }}</div>
             </div>
           </div>
           <div>
             <table id="table" class="table-TN" style="width: 100%; border-spacing: 0px">
               <thead>
                 <tr>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 1rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     STT
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 30rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     Tên sản phẩm
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 3rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     Đ.vị tính
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 4rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     SL khách giao
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 4rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     SL thực nhận
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 3rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     SL SP đổi mới
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 3.5rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     SL SP sửa chữa
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 4rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     SL SP không được bảo hành
                   </th>
-                  <th style="
+                  <th
+                    style="
                       text-align: center;
                       font-weight: 700;
                       width: 10rem;
                       border-left: 0.5px solid black;
                       border-top: 0.5px solid black;
                       border-bottom: 0.5px solid black;
-                    ">
+                    "
+                  >
                     Lý do không bảo hành
                   </th>
-                  <th style="text-align: center; font-weight: 700; width: 10rem; border: 0.5px solid black">Lý do sửa
-                    chữa</th>
+                  <th style="text-align: center; font-weight: 700; width: 10rem; border: 0.5px solid black">Lý do sửa chữa</th>
                 </tr>
               </thead>
               <tbody class="body-table" *ngFor="let data of resultChiTietSanPhamTiepNhans; let i = index">
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ i + 1 }}
                 </td>
-                <td
-                  style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
+                <td style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
                   {{ data.tenSanPham }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.donVi }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.slKhachGiao }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.slTiepNhan }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.slDoiMoi }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.slSuaChua }}
                 </td>
-                <td style="
+                <td
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     text-align: center;
-                  ">
+                  "
+                >
                   {{ data.slKhongBaoHanh }}
                 </td>
+                <td style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black"></td>
                 <td
-                  style="font-weight: 650; height: 36px; border-left: 0.5px solid black; border-bottom: 0.5px solid black">
-                </td>
-                <td style="
+                  style="
                     font-weight: 650;
                     height: 36px;
                     border-left: 0.5px solid black;
                     border-bottom: 0.5px solid black;
                     border-right: 0.5px solid black;
-                  "></td>
+                  "
+                ></td>
               </tbody>
             </table>
           </div>
           <div class="notes">
             <p>
-              Biên bản được lập thành 03 liên (hoặc 4 liên): liên 1 lưu Tổ bảo hành sản phẩm, liên 2 giao khách hàng,
-              liên 3 giao P. Kh,
-              liên 4 giao P. BH1 (Với trường hợp khách hàng là C1, 2 Miền Bắc). Đối với chi nhánh (2 liên): liên 1 lưu
-              chi nhánh, liên 2
+              Biên bản được lập thành 03 liên (hoặc 4 liên): liên 1 lưu Tổ bảo hành sản phẩm, liên 2 giao khách hàng, liên 3 giao P. Kh,
+              liên 4 giao P. BH1 (Với trường hợp khách hàng là C1, 2 Miền Bắc). Đối với chi nhánh (2 liên): liên 1 lưu chi nhánh, liên 2
               giao khách hàng
             </p>
             <p><strong>Lưu ý: Khi khách hàng lấy sản phẩm đổi, phải giao liên 2 cho thủ kho công ty</strong></p>
@@ -2089,14 +2452,12 @@
               <div class="col" style="text-align: center"><strong>BẢO VỆ</strong></div>
               <div class="col" style="text-align: center">
                 <strong>TỔ BẢO HÀNH SẢN PHẨM</strong><br />
-                <a [href]="selectedValue"
-                  style="font-size: 18px; display: block; margin-top: 6rem; text-decoration: none; color: black">{{
+                <a [href]="selectedValue" style="font-size: 18px; display: block; margin-top: 6rem; text-decoration: none; color: black">{{
                   selectedValue
-                  }}</a>
+                }}</a>
               </div>
             </div>
           </footer>
-          <p style="page-break-after: always"></p>
           <br />
           <br />
 
