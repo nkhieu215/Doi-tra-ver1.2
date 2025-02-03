@@ -95,6 +95,10 @@ export class DonBaoHanhComponent implements OnInit {
   resultChiTietSanPhamTiepNhans: any[] = [];
   title = 'Quản lý mã tiếp nhận';
 
+  yearTN = 0;
+  monthTN = 0;
+  dateTN = 0;
+
   predicate!: string;
   ascending!: boolean;
   // biến lưu thông tin từng đơn bảo hành
@@ -152,17 +156,17 @@ export class DonBaoHanhComponent implements OnInit {
     khongBaoHanh: number | null | undefined;
     soLuongDaNhan: number | null | undefined;
   }[] = [
-      {
-        id: this.idMaTiepNhan,
-        idMaTiepNhan: this.idMaTiepNhan,
-        tenSanPham: this.tenSanPham,
-        soLuong: this.soLuong,
-        doiMoi: this.doiMoi,
-        suaChua: this.suaChua,
-        khongBaoHanh: this.khongBaoHanh,
-        soLuongDaNhan: this.soLuongDaNhan,
-      },
-    ];
+    {
+      id: this.idMaTiepNhan,
+      idMaTiepNhan: this.idMaTiepNhan,
+      tenSanPham: this.tenSanPham,
+      soLuong: this.soLuong,
+      doiMoi: this.doiMoi,
+      suaChua: this.suaChua,
+      khongBaoHanh: this.khongBaoHanh,
+      soLuongDaNhan: this.soLuongDaNhan,
+    },
+  ];
 
   editForm = this.formBuilder.group({
     id: [],
@@ -205,7 +209,7 @@ export class DonBaoHanhComponent implements OnInit {
     protected danhSachTinhTrangService: DanhSachTinhTrangService,
     protected sanPhamService: SanPhamService, // protected dialog: MatDialog,
     protected navBarComponent: NavbarComponent
-  ) { }
+  ) {}
 
   buttonBBTN: Formatter<any> = (_row, _cell, value) =>
     value
@@ -216,8 +220,8 @@ export class DonBaoHanhComponent implements OnInit {
     value
       ? `<button class="btn btn-success fa fa-check-square-o" style="height: 28px; line-height: 14px; width: 15px">PL</button>`
       : {
-        text: '<button class="btn btn-success fa fa-check-square-o" style="height: 28px; line-height: 14px" title="Phân loại"></button>',
-      };
+          text: '<button class="btn btn-success fa fa-check-square-o" style="height: 28px; line-height: 14px" title="Phân loại"></button>',
+        };
 
   buttonEdit: Formatter<any> = (_row, _cell, value) =>
     value
@@ -1387,6 +1391,9 @@ export class DonBaoHanhComponent implements OnInit {
       }
       this.maBienBan = `TN${this.date}${this.month}${this.year}${this.hours}${this.minutes}${this.seconds}`;
       this.themMoiBienBan = { id: null, maBienBan: this.maBienBan, loaiBienBan: this.loaiBienBan, soLanIn: 0, donBaoHanh: this.donBaoHanh };
+      this.yearTN = this.donBaoHanh.ngayTiepNhan.substr(2, 2);
+      this.monthTN = this.donBaoHanh.ngayTiepNhan.substr(5, 2);
+      this.dateTN = this.donBaoHanh.ngayTiepNhan.substr(8, 2);
       // console.log('them moi bien ban:', this.themMoiBienBan);
     }
     this.resultChiTietSanPhamTiepNhans.sort((a, b) => b.slSuaChua - a.slSuaChua);
