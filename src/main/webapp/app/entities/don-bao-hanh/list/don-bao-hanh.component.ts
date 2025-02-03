@@ -1394,6 +1394,10 @@ export class DonBaoHanhComponent implements OnInit {
       this.yearTN = this.donBaoHanh.ngayTiepNhan.substr(2, 2);
       this.monthTN = this.donBaoHanh.ngayTiepNhan.substr(5, 2);
       this.dateTN = this.donBaoHanh.ngayTiepNhan.substr(8, 2);
+      console.log('ngày', this.dateTN);
+      console.log('tháng', this.monthTN);
+      console.log('năm', this.yearTN);
+
       // console.log('them moi bien ban:', this.themMoiBienBan);
     }
     this.resultChiTietSanPhamTiepNhans.sort((a, b) => b.slSuaChua - a.slSuaChua);
