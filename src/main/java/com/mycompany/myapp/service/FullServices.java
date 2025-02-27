@@ -187,13 +187,13 @@ public class FullServices {
         if (max < 1000) {
             donBaoHanh.setMaTiepNhan(donBaoHanh.getMaTiepNhan() + "-000" + max.toString());
             this.donBaoHanhRepository.save(donBaoHanh);
-        } else if (1000 < max && max < 10000) {
+        } else if ((1000 < max && max < 10000) || max == 1000) {
             donBaoHanh.setMaTiepNhan(donBaoHanh.getMaTiepNhan() + "-00" + max.toString());
             this.donBaoHanhRepository.save(donBaoHanh);
-        } else if (10000 < max && max < 100000) {
+        } else if ((10000 < max && max < 100000) || max == 10000) {
             donBaoHanh.setMaTiepNhan(donBaoHanh.getMaTiepNhan() + "-0" + max.toString());
             this.donBaoHanhRepository.save(donBaoHanh);
-        } else if (100000 < max) {
+        } else {
             donBaoHanh.setMaTiepNhan(donBaoHanh.getMaTiepNhan() + "-" + max.toString());
             this.donBaoHanhRepository.save(donBaoHanh);
         }
